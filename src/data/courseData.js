@@ -150,6 +150,36 @@ By the end, you'll be able to create:
 - And much more!
 
 Let's start coding! 💪
+### 🎯 Practice Exercise
+
+**Exercise: JavaScript Exploration**
+
+Open your browser console and try these:
+
+\`\`\`javascript
+// Challenge 1: Create variables for yourself
+let myName = "Your Name";
+let myAge = 25;
+let isLearningJS = true;
+console.log(myName + " is " + myAge + " and learning JS: " + isLearningJS);
+
+// Challenge 2: Do some math
+let price = 29.99;
+let quantity = 3;
+let tax = 0.08;
+let total = price * quantity * (1 + tax);
+console.log("Total: $" + total.toFixed(2));
+
+// Challenge 3: Try typeof on different values
+console.log(typeof "hello");     // ?
+console.log(typeof 42);          // ?
+console.log(typeof true);        // ?
+console.log(typeof undefined);   // ?
+console.log(typeof null);        // ?  (surprise!)
+\`\`\`
+
+Try creating 5 different variables of different types and logging them!
+
           `
         },
         {
@@ -367,6 +397,41 @@ Math.min(1, 5, 3);       // 1
 \`\`\`
 
 Now you understand how JavaScript stores and manipulates data! 🎯
+### 🎯 Practice Exercise
+
+**Exercise: Variable Types Challenge**
+
+\`\`\`javascript
+// Challenge 1: Fix these variable declarations
+// (What's wrong with each one?)
+// const age = 25; age = 26;  // Error! Why?
+// let let = "hello";          // Error! Why?
+// var 123name = "test";       // Error! Why?
+
+// Challenge 2: Type coercion predictions
+// Predict the output BEFORE running:
+console.log("5" + 3);      // ?
+console.log("5" - 3);      // ?
+console.log("5" * "2");    // ?
+console.log(true + 1);     // ?
+console.log(false + "1");  // ?
+
+// Challenge 3: Template literals
+const firstName = "Jane";
+const lastName = "Doe";
+const age = 28;
+const greeting = \`Hello, \${firstName} \${lastName}! You are \${age} years old. Next year you'll be \${age + 1}.\`;
+console.log(greeting);
+
+// Challenge 4: Number methods
+const pi = 3.14159265359;
+console.log(pi.toFixed(2));        // Round to 2 decimals
+console.log(Number.isInteger(pi)); // Is it an integer?
+console.log(parseInt("42px"));     // Extract number from string
+\`\`\`
+
+Try converting between all the primitive types (string → number → boolean)!
+
           `
         }
       ]
@@ -580,6 +645,43 @@ console.log(Array.isArray({}));     // false
 \`\`\`
 
 Operators are the building blocks of logic in your code! 🧱
+### 🎯 Practice Exercise
+
+**Exercise: Operator Olympics**
+
+\`\`\`javascript
+// Challenge 1: Comparison predictions (no cheating!)
+console.log(0 == false);        // ?
+console.log(0 === false);       // ?
+console.log("" == false);       // ?
+console.log(null == undefined); // ?
+console.log(NaN == NaN);        // ?
+
+// Challenge 2: Build a simple calculator
+function calculate(a, operator, b) {
+    switch(operator) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': return b !== 0 ? a / b : "Cannot divide by zero";
+        case '%': return a % b;
+        case '**': return a ** b;
+        default: return "Unknown operator";
+    }
+}
+
+console.log(calculate(10, '+', 5));   // 15
+console.log(calculate(10, '/', 0));   // Cannot divide by zero
+console.log(calculate(2, '**', 10));  // 1024
+
+// Challenge 3: Short-circuit evaluation
+const user = null;
+const displayName = user?.name || "Guest";
+console.log(displayName);  // "Guest"
+\`\`\`
+
+Try adding more operators (like bitwise operations) to the calculator!
+
           `
         },
         {
@@ -798,6 +900,48 @@ console.log(sum);  // 36
 \`\`\`
 
 Control flow is the foundation of programming logic! 🧠
+### 🎯 Practice Exercise
+
+**Exercise: Loop & Conditional Challenges**
+
+\`\`\`javascript
+// Challenge 1: FizzBuzz (classic interview question!)
+for (let i = 1; i <= 30; i++) {
+    if (i % 15 === 0) console.log("FizzBuzz");
+    else if (i % 3 === 0) console.log("Fizz");
+    else if (i % 5 === 0) console.log("Buzz");
+    else console.log(i);
+}
+
+// Challenge 2: Build a number guessing game
+function guessingGame(secret) {
+    const guesses = [50, 25, 37, 42];
+    for (const guess of guesses) {
+        if (guess === secret) {
+            console.log(\`Found it! The number is \${guess}\`);
+            return;
+        } else if (guess < secret) {
+            console.log(\`\${guess} is too low!\`);
+        } else {
+            console.log(\`\${guess} is too high!\`);
+        }
+    }
+    console.log("Out of guesses!");
+}
+guessingGame(42);
+
+// Challenge 3: Create a multiplication table
+for (let i = 1; i <= 5; i++) {
+    let row = "";
+    for (let j = 1; j <= 5; j++) {
+        row += String(i * j).padStart(4);
+    }
+    console.log(row);
+}
+\`\`\`
+
+Try implementing a simple text-based tic-tac-toe game using loops and conditionals!
+
           `
         }
       ]
@@ -1016,6 +1160,39 @@ console.log(counter.getCount());   // 2
 \`\`\`
 
 Functions are the heart of JavaScript programming! ❤️
+### 🎯 Practice Exercise
+
+**Exercise: Function Workshop**
+
+\`\`\`javascript
+// Challenge 1: Write a function that checks if a string is a palindrome
+function isPalindrome(str) {
+    const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    return cleaned === cleaned.split('').reverse().join('');
+}
+console.log(isPalindrome("racecar"));     // true
+console.log(isPalindrome("A man, a plan, a canal: Panama")); // true
+
+// Challenge 2: Create a function that returns a function (closure)
+function createMultiplier(factor) {
+    return function(number) {
+        return number * factor;
+    };
+}
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+console.log(double(5));  // 10
+console.log(triple(5));  // 15
+
+// Challenge 3: Write a function with default parameters and rest params
+function createProfile(name, age = 25, ...hobbies) {
+    return \`\${name} (age \${age}) enjoys: \${hobbies.join(', ')}\`;
+}
+console.log(createProfile("Alice", 30, "coding", "hiking", "chess"));
+\`\`\`
+
+Try creating a function that composes two functions together: compose(f, g) returns a function that does f(g(x)).
+
           `
         },
         {
@@ -1232,6 +1409,57 @@ console.log(expensiveNames);  // ["Laptop", "Phone", "Tablet"]
 </warning>
 
 Higher-order functions make your code declarative and elegant! ✨
+### 🎯 Practice Exercise
+
+**Exercise: Advanced Functions Challenge**
+
+\`\`\`javascript
+// Challenge 1: Implement a simple memoize function
+function memoize(fn) {
+    const cache = {};
+    return function(...args) {
+        const key = JSON.stringify(args);
+        if (key in cache) {
+            console.log("From cache!");
+            return cache[key];
+        }
+        cache[key] = fn(...args);
+        return cache[key];
+    };
+}
+
+const slowSquare = memoize((n) => {
+    console.log("Computing...");
+    return n * n;
+});
+console.log(slowSquare(5));  // Computing... 25
+console.log(slowSquare(5));  // From cache! 25
+
+// Challenge 2: Implement curry function
+function curry(fn) {
+    return function curried(...args) {
+        if (args.length >= fn.length) return fn(...args);
+        return (...more) => curried(...args, ...more);
+    };
+}
+
+const add = curry((a, b, c) => a + b + c);
+console.log(add(1)(2)(3));    // 6
+console.log(add(1, 2)(3));    // 6
+console.log(add(1)(2, 3));    // 6
+
+// Challenge 3: Debounce implementation
+function debounce(fn, delay) {
+    let timer;
+    return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+    };
+}
+\`\`\`
+
+Try implementing a throttle function (similar to debounce but fires at intervals)!
+
           `
         }
       ]
@@ -1457,6 +1685,51 @@ console.log(frozen.x);  // 1
 </tip>
 
 Objects are everywhere in JavaScript — master them! 🎯
+### 🎯 Practice Exercise
+
+**Exercise: Object Mastery**
+
+\`\`\`javascript
+// Challenge 1: Create a bank account object with methods
+const bankAccount = {
+    balance: 1000,
+    transactions: [],
+    
+    deposit(amount) {
+        this.balance += amount;
+        this.transactions.push({ type: 'deposit', amount, date: new Date() });
+        return this;
+    },
+    
+    withdraw(amount) {
+        if (amount > this.balance) throw new Error("Insufficient funds");
+        this.balance -= amount;
+        this.transactions.push({ type: 'withdraw', amount, date: new Date() });
+        return this;
+    },
+    
+    getStatement() {
+        console.log("--- Statement ---");
+        this.transactions.forEach(t => 
+            console.log(\`\${t.type}: $\${t.amount}\`));
+        console.log(\`Balance: $\${this.balance}\`);
+    }
+};
+
+bankAccount.deposit(500).withdraw(200).deposit(300).getStatement();
+
+// Challenge 2: Deep clone an object
+const deepClone = (obj) => JSON.parse(JSON.stringify(obj));
+// Or use: structuredClone(obj) in modern JS
+
+// Challenge 3: Create an object from two arrays (keys and values)
+const fromArrays = (keys, values) => 
+    Object.fromEntries(keys.map((k, i) => [k, values[i]]));
+console.log(fromArrays(['a', 'b', 'c'], [1, 2, 3]));
+\`\`\`
+
+Try extending the bank account with an interest calculation method!
+
           `
         },
         {
@@ -1660,6 +1933,54 @@ console.log(sorted);    // [1, 2, 3]
 </warning>
 
 Arrays are essential for working with collections of data! 📊
+### 🎯 Practice Exercise
+
+**Exercise: Array Gymnastics**
+
+\`\`\`javascript
+// Challenge 1: Implement common array utilities
+const students = [
+    { name: "Alice", grade: 92 },
+    { name: "Bob", grade: 85 },
+    { name: "Charlie", grade: 78 },
+    { name: "Diana", grade: 95 },
+    { name: "Eve", grade: 88 }
+];
+
+// Get names of students with grade > 85
+const topStudents = students
+    .filter(s => s.grade > 85)
+    .map(s => s.name);
+console.log(topStudents);  // ["Alice", "Diana", "Eve"]
+
+// Calculate class average
+const average = students.reduce((sum, s) => sum + s.grade, 0) / students.length;
+console.log("Average:", average);
+
+// Challenge 2: Flatten a nested array
+const nested = [[1, 2], [3, [4, 5]], [6]];
+const flatten = (arr) => arr.reduce((flat, item) => 
+    flat.concat(Array.isArray(item) ? flatten(item) : item), []);
+console.log(flatten(nested));  // [1, 2, 3, 4, 5, 6]
+
+// Challenge 3: Group array elements
+const groupBy = (arr, key) => arr.reduce((groups, item) => {
+    const group = item[key];
+    groups[group] = groups[group] || [];
+    groups[group].push(item);
+    return groups;
+}, {});
+
+const people = [
+    { name: "Alice", city: "NYC" },
+    { name: "Bob", city: "LA" },
+    { name: "Charlie", city: "NYC" }
+];
+console.log(groupBy(people, "city"));
+\`\`\`
+
+Try implementing \`unique\`, \`intersection\`, and \`difference\` functions for arrays!
+
           `
         }
       ]
@@ -2089,6 +2410,59 @@ email.addEventListener("input", (e) => {
 \`\`\`
 
 Events make your pages come alive! ⚡
+### 🎯 Practice Exercise
+
+**Exercise: Event Handling Challenges**
+
+\`\`\`javascript
+// Challenge 1: Create a keyboard shortcut handler
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        console.log('Custom save triggered!');
+    }
+    if (e.key === 'Escape') {
+        console.log('Escape pressed — close modal');
+    }
+});
+
+// Challenge 2: Drag counter with event delegation
+// HTML: <div id="drop-zone">Drop files here</div>
+const dropZone = document.getElementById('drop-zone');
+if (dropZone) {
+    let dragCount = 0;
+    dropZone.addEventListener('dragenter', () => {
+        dragCount++;
+        dropZone.classList.add('highlight');
+    });
+    dropZone.addEventListener('dragleave', () => {
+        dragCount--;
+        if (dragCount === 0) dropZone.classList.remove('highlight');
+    });
+}
+
+// Challenge 3: Custom event system
+class EventEmitter {
+    constructor() { this.events = {}; }
+    on(event, callback) {
+        (this.events[event] ??= []).push(callback);
+    }
+    emit(event, ...args) {
+        this.events[event]?.forEach(cb => cb(...args));
+    }
+}
+
+const emitter = new EventEmitter();
+emitter.on('message', (msg) => console.log('Got:', msg));
+emitter.emit('message', 'Hello!');
+\`\`\`
+
+Build a simple to-do list using only DOM manipulation and events!
+<warning>
+⚠️ Be careful with event listeners on frequently-firing events like \`scroll\` and \`mousemove\`. Without throttling or debouncing, you can crash the browser with too many function calls per second!
+</warning>
+
+
           `
         }
       ]
@@ -2308,6 +2682,51 @@ Promise.any([promise1, promise2, promise3])
 </tip>
 
 Promises are the foundation of modern async JavaScript! 🔮
+### 🎯 Practice Exercise
+
+**Exercise: Async Programming Challenges**
+
+\`\`\`javascript
+// Challenge 1: Simulate async operations
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function simulateDataFetch() {
+    console.log("Fetching user...");
+    await delay(1000);
+    const user = { id: 1, name: "Alice" };
+    
+    console.log("Fetching posts...");
+    await delay(800);
+    const posts = [{ id: 1, title: "Hello World" }];
+    
+    return { user, posts };
+}
+
+simulateDataFetch().then(data => console.log(data));
+
+// Challenge 2: Promise.all vs Promise.allSettled
+const promises = [
+    Promise.resolve("Success 1"),
+    Promise.reject("Error!"),
+    Promise.resolve("Success 3")
+];
+
+// Promise.all fails on first rejection
+Promise.all(promises).catch(e => console.log("all:", e));
+
+// Promise.allSettled waits for everything
+Promise.allSettled(promises).then(results => 
+    console.log("allSettled:", results));
+\`\`\`
+
+Try implementing a retry function that retries a failed promise N times with exponential backoff!
+<warning>
+⚠️ Never use synchronous XMLHttpRequest in production — it blocks the entire browser UI, making your page completely unresponsive until the request completes!
+</warning>
+
+
           `
         },
         {
@@ -2535,6 +2954,58 @@ async function loadWithState(setState) {
 </tip>
 
 Async/await makes asynchronous code a joy to write! 🎉
+### 🎯 Practice Exercise
+
+**Exercise: Fetch API Workout**
+
+\`\`\`javascript
+// Challenge 1: Build a simple API wrapper
+class ApiClient {
+    constructor(baseUrl) {
+        this.baseUrl = baseUrl;
+    }
+    
+    async get(path) {
+        const res = await fetch(this.baseUrl + path);
+        if (!res.ok) throw new Error(\`HTTP \${res.status}\`);
+        return res.json();
+    }
+    
+    async post(path, data) {
+        const res = await fetch(this.baseUrl + path, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        return res.json();
+    }
+}
+
+// Usage:
+const api = new ApiClient('https://jsonplaceholder.typicode.com');
+
+// Challenge 2: Fetch with error handling and loading state
+async function fetchWithState(url) {
+    const state = { loading: true, data: null, error: null };
+    try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(\`HTTP \${res.status}\`);
+        state.data = await res.json();
+    } catch (err) {
+        state.error = err.message;
+    } finally {
+        state.loading = false;
+    }
+    return state;
+}
+
+// Try it:
+fetchWithState('https://jsonplaceholder.typicode.com/users/1')
+    .then(console.log);
+\`\`\`
+
+Build a function that fetches data from multiple endpoints in parallel and combines the results!
+
           `
         }
       ]
@@ -2764,6 +3235,53 @@ Dog.isDog(rex);  // true
 \`\`\`
 
 ES6 features make JavaScript cleaner and more expressive! ✨
+### 🎯 Practice Exercise
+
+**Exercise: ES6+ Feature Practice**
+
+\`\`\`javascript
+// Challenge 1: Destructuring workout
+const { 
+    name, 
+    address: { city, zip },
+    hobbies: [firstHobby, ...otherHobbies]
+} = {
+    name: "Alice",
+    address: { city: "NYC", zip: "10001" },
+    hobbies: ["coding", "hiking", "reading"]
+};
+console.log(city, firstHobby, otherHobbies);
+
+// Challenge 2: Use Map and Set
+const wordCount = new Map();
+const words = "the cat sat on the mat the cat".split(' ');
+words.forEach(w => wordCount.set(w, (wordCount.get(w) || 0) + 1));
+console.log([...wordCount.entries()]);
+
+const uniqueWords = new Set(words);
+console.log("Unique:", [...uniqueWords]);
+
+// Challenge 3: Generator function
+function* fibonacci() {
+    let a = 0, b = 1;
+    while (true) {
+        yield a;
+        [a, b] = [b, a + b];
+    }
+}
+
+const fib = fibonacci();
+for (let i = 0; i < 10; i++) {
+    console.log(fib.next().value);
+}
+\`\`\`
+
+Try creating a generator that yields prime numbers infinitely!
+<warning>
+⚠️ Arrow functions don\'t have their own \`this\`, \`arguments\`, or \`super\`. Don\'t use them as methods in objects or as constructors — you\'ll get unexpected \`undefined\` values!
+</warning>
+
+
           `
         },
         {
@@ -2954,6 +3472,10 @@ console.log(data);
 \`\`\`
 
 Stay current with JavaScript — it keeps getting better! 📈
+<warning>
+⚠️ Optional chaining (\`?.\`) returns \`undefined\` if the chain breaks, but it doesn\'t prevent you from calling methods on \`undefined\`. Always null-check before critical operations!
+</warning>
+
           `
         }
       ]
@@ -3212,6 +3734,10 @@ function calculateTotal(subtotal, taxRate) {
 \`\`\`
 
 Write code that your future self will thank you for! 🙏
+<warning>
+⚠️ Never use \`eval()\` in production code — it's a massive security vulnerability that can execute arbitrary code. Use \`JSON.parse()\` for parsing JSON strings instead!
+</warning>
+
           `
         },
         {
@@ -3517,6 +4043,56 @@ You now have the skills to:
 - Build complete web applications
 
 Keep coding and building projects! 🚀
+### 🎯 Practice Exercise
+
+**Exercise: Build Your Own Project**
+
+Plan and build a complete project using everything you've learned:
+
+\`\`\`javascript
+// Project ideas to try:
+// 1. Weather Dashboard - Fetch weather API, display forecast
+// 2. Todo App with LocalStorage - CRUD operations, persistence
+// 3. Quiz Game - Questions, scoring, timer
+// 4. Expense Tracker - Add/remove items, calculate totals
+// 5. Recipe Finder - Search API, display results
+
+// Project template:
+class App {
+    constructor() {
+        this.state = {};
+        this.init();
+    }
+    
+    async init() {
+        this.bindEvents();
+        await this.loadData();
+        this.render();
+    }
+    
+    bindEvents() {
+        // Set up event listeners
+    }
+    
+    async loadData() {
+        // Fetch data from API or localStorage
+    }
+    
+    render() {
+        // Update the DOM
+    }
+}
+
+// Start your app
+// new App();
+\`\`\`
+
+Pick one project, build it, and deploy it on GitHub Pages. That's your portfolio piece!
+<warning>
+⚠️ Before deploying, always remove \`console.log\` statements and API keys from your source code. Use environment variables for sensitive configuration!
+</warning>
+
+
           `
         }
       ]
